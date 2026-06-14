@@ -207,17 +207,15 @@
         </div>
         <div class="video-shell reveal glass-card">
           <div class="video-shell__glow"></div>
-          <button class="video-play" type="button" aria-label="Play demo video" data-video-play>
-            <span></span>
-          </button>
-          <video class="demo-video" id="robot-demo-video" controls playsinline preload="metadata">
-            <source src="assets/robot-demo.mp4" type="video/mp4" />
-            Your browser does not support the video element.
-          </video>
-          <div class="video-fallback" data-video-fallback>
-            <div class="video-fallback__icon"></div>
-            <strong>Demo video not bundled in this workspace.</strong>
-            <p>Add a video file at assets/robot-demo.mp4 to enable playback. Until then, this preview keeps the section visually complete.</p>
+          <!-- YouTube video ID'sini buraya yapıştır: src içindeki YOUR_YOUTUBE_VIDEO_ID kısmını değiştir -->
+          <div class="youtube-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/Bo2SPikwFwE"
+              title="OHS Sentinel Robot Demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
         <div class="mini-grid reveal">
