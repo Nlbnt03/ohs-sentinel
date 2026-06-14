@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS Sentinel — Autonomous Workplace Safety Inspection Robot</title>
+  <meta name="description" content="OHS Sentinel is an AI-powered autonomous safety inspection robot for continuous workplace monitoring, PPE detection and real-time hazard reporting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="#overview" aria-label="OHS Sentinel home">
+          <span class="brand__mark"></span>
+          <span class="brand__text">OHS SENTINEL</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-nav" class="nav">
+          <a href="#overview">Overview</a>
+          <a href="#modules">Features</a>
+          <a href="#architecture">Technology</a>
+          <a href="#demo">Demo</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#specs">Specifications</a>
+          <a href="#team">Team</a>
+        </nav>
+        <a class="btn btn--primary nav-cta" href="#demo" data-scroll>
+          Watch Demo
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section" id="overview">
+        <div class="hero__grid">
+          <div class="hero__copy reveal">
+            <div class="eyebrow">University robotics project • edge AI safety automation</div>
+            <h1>Autonomous Safety. Continuous Protection.</h1>
+            <p class="hero__lead">An AI-powered mobile inspection robot that detects PPE violations, monitors environmental hazards and reports safety incidents in real time.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#demo" data-scroll>Watch Robot Demo</a>
+              <a class="btn btn--ghost" href="#architecture" data-scroll>Explore Technology</a>
+            </div>
+            <div class="hero__badges">
+              <span>Raspberry Pi 5</span>
+              <span>YOLOv8n</span>
+              <span>FastAPI</span>
+              <span>MQTT</span>
+            </div>
+          </div>
+
+          <div class="hero__visual reveal">
+            <div class="hero-frame glass-card">
+              <div class="hero-frame__grid"></div>
+              <div class="hero-frame__scan"></div>
+              <div class="hero-frame__status">
+                <span class="status-pill status-pill--success">Edge AI Active</span>
+                <span class="status-pill">Local Patrol Mode</span>
+              </div>
+              <div class="hero-robot">
+                <img class="asset-media" src="assets/robot-hero.png" alt="OHS Sentinel robot" data-asset-media />
+                <div class="asset-fallback">
+                  <div class="asset-fallback__orb"></div>
+                  <div class="asset-fallback__robot">
+                    <div class="asset-fallback__camera"></div>
+                    <div class="asset-fallback__core"></div>
+                    <div class="asset-fallback__wheel asset-fallback__wheel--left"></div>
+                    <div class="asset-fallback__wheel asset-fallback__wheel--right"></div>
+                  </div>
+                  <div class="asset-fallback__caption">
+                    <strong>OHS Sentinel</strong>
+                    <span>Autonomous patrol robot concept</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-frame__signals">
+                <span>Camera Stream</span>
+                <span>MQTT Events</span>
+                <span>Waypoint Patrol</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-grid reveal">
+          <article class="stat-card glass-card">
+            <span>AI-Powered PPE Detection</span>
+            <strong>Hard hat, vest and goggles checks at the edge</strong>
+          </article>
+          <article class="stat-card glass-card">
+            <span>Real-Time Hazard Monitoring</span>
+            <strong>Temperature, gas and noise awareness in motion</strong>
+          </article>
+          <article class="stat-card glass-card">
+            <span>Autonomous Waypoint Patrol</span>
+            <strong>Predefined routes for repeatable inspections</strong>
+          </article>
+          <article class="stat-card glass-card">
+            <span>Local Edge Processing</span>
+            <strong>Low-latency inference with Raspberry Pi 5</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--split section--problem" id="problem">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Why it matters</div>
+          <h2>Traditional Safety Inspections Leave Critical Blind Spots</h2>
+        </div>
+        <div class="problem-layout">
+          <div class="problem-layout__cards reveal">
+            <article class="problem-card glass-card">
+              <span class="problem-card__index">01</span>
+              <h3>Inconsistent Coverage</h3>
+              <p>Human inspectors cannot continuously monitor every area.</p>
+            </article>
+            <article class="problem-card glass-card">
+              <span class="problem-card__index">02</span>
+              <h3>Delayed Detection</h3>
+              <p>Many violations are discovered only after an accident occurs.</p>
+            </article>
+            <article class="problem-card glass-card">
+              <span class="problem-card__index">03</span>
+              <h3>Environmental Risk</h3>
+              <p>Dangerous gas, heat and noise zones may be unsafe for human inspection.</p>
+            </article>
+            <article class="problem-card glass-card">
+              <span class="problem-card__index">04</span>
+              <h3>Fragmented Systems</h3>
+              <p>Camera monitoring and environmental sensing are often managed separately.</p>
+            </article>
+          </div>
+          <div class="problem-layout__visual reveal">
+            <div class="risk-board glass-card">
+              <div class="risk-board__header">
+                <span>Industrial Risk Map</span>
+                <span class="risk-tag">Live blind-spot analysis</span>
+              </div>
+              <img class="asset-media asset-media--tall" src="assets/industrial-risk.png" alt="Industrial risk map" data-asset-media />
+              <div class="asset-fallback asset-fallback--map">
+                <div class="asset-fallback__map-grid"></div>
+                <div class="asset-fallback__hazard hazard-a"></div>
+                <div class="asset-fallback__hazard hazard-b"></div>
+                <div class="asset-fallback__marker marker-a"></div>
+                <div class="asset-fallback__marker marker-b"></div>
+                <div class="asset-fallback__legend">Potential blind spots, heat zones and collision corridors</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--solution" id="solution">
+        <div class="section__heading reveal">
+          <div class="eyebrow">How it works</div>
+          <h2>One Autonomous Platform. Multiple Layers of Protection.</h2>
+        </div>
+        <div class="workflow reveal">
+          <div class="workflow__rail"></div>
+          <article class="workflow-step glass-card">
+            <span class="workflow-step__num">1</span>
+            <h3>Patrol</h3>
+            <p>Robot follows predefined waypoints.</p>
+          </article>
+          <article class="workflow-step glass-card">
+            <span class="workflow-step__num">2</span>
+            <h3>Observe</h3>
+            <p>Camera scans workers and the surrounding environment.</p>
+          </article>
+          <article class="workflow-step glass-card">
+            <span class="workflow-step__num">3</span>
+            <h3>Detect</h3>
+            <p>YOLOv8n identifies missing PPE while sensors check environmental conditions.</p>
+          </article>
+          <article class="workflow-step glass-card">
+            <span class="workflow-step__num">4</span>
+            <h3>Localize</h3>
+            <p>Each detected event is associated with the current waypoint.</p>
+          </article>
+          <article class="workflow-step glass-card">
+            <span class="workflow-step__num">5</span>
+            <h3>Notify</h3>
+            <p>The event is sent to the dashboard through MQTT and WebSocket.</p>
+          </article>
+          <article class="workflow-step glass-card">
+            <span class="workflow-step__num">6</span>
+            <h3>Respond</h3>
+            <p>Operators receive alerts and can start, stop or trigger the alarm.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--demo" id="demo">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Robot video</div>
+          <h2>See OHS Sentinel in Action</h2>
+          <p class="section__lead">Watch the robot patrol a test environment, detect safety risks and transmit live events to the monitoring dashboard.</p>
+        </div>
+        <div class="video-shell reveal glass-card">
+          <div class="video-shell__glow"></div>
+          <button class="video-play" type="button" aria-label="Play demo video" data-video-play>
+            <span></span>
+          </button>
+          <video class="demo-video" id="robot-demo-video" controls playsinline preload="metadata">
+            <source src="assets/robot-demo.mp4" type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
+          <div class="video-fallback" data-video-fallback>
+            <div class="video-fallback__icon"></div>
+            <strong>Demo video not bundled in this workspace.</strong>
+            <p>Add a video file at assets/robot-demo.mp4 to enable playback. Until then, this preview keeps the section visually complete.</p>
+          </div>
+        </div>
+        <div class="mini-grid reveal">
+          <article class="mini-card glass-card"><h3>Autonomous Patrol</h3><p>Waypoint navigation keeps inspections repeatable and consistent.</p></article>
+          <article class="mini-card glass-card"><h3>PPE Violation Detection</h3><p>Edge vision flags missing protective equipment without cloud dependency.</p></article>
+          <article class="mini-card glass-card"><h3>Real-Time Dashboard Alerts</h3><p>Events flow instantly into the monitoring interface for operator response.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="modules">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Core capabilities</div>
+          <h2>Five Integrated Modules</h2>
+        </div>
+        <div class="module-grid reveal">
+          <article class="module-card glass-card">
+            <div class="module-card__id">Module 01</div>
+            <h3>Vision-Based PPE Detection</h3>
+            <p>Processes live camera frames with YOLOv8n to detect missing hard hats, safety vests and protective goggles.</p>
+            <div class="tag-list"><span>YOLOv8n</span><span>OpenCV</span><span>Pi Camera</span><span>Edge AI</span></div>
+          </article>
+          <article class="module-card glass-card">
+            <div class="module-card__id">Module 02</div>
+            <h3>Environmental Hazard Sensing</h3>
+            <p>Continuously monitors temperature, humidity, gas concentration and ambient noise using an onboard sensor array.</p>
+            <div class="tag-list"><span>DHT22</span><span>MQ-135</span><span>MCP3008</span><span>KY-038</span></div>
+          </article>
+          <article class="module-card glass-card">
+            <div class="module-card__id">Module 03</div>
+            <h3>Autonomous Navigation</h3>
+            <p>Follows predefined waypoint routes and uses ultrasonic sensors to stop when an obstacle is detected.</p>
+            <div class="tag-list"><span>Waypoint Navigation</span><span>HC-SR04</span><span>Arduino</span><span>L298N</span></div>
+          </article>
+          <article class="module-card glass-card">
+            <div class="module-card__id">Module 04</div>
+            <h3>Backend and REST API</h3>
+            <p>Collects robot events through MQTT, stores them in SQLite and distributes live updates through REST and WebSocket services.</p>
+            <div class="tag-list"><span>FastAPI</span><span>MQTT</span><span>SQLite</span><span>WebSocket</span></div>
+          </article>
+          <article class="module-card glass-card">
+            <div class="module-card__id">Module 05</div>
+            <h3>OHS Monitoring Dashboard</h3>
+            <p>Visualizes incidents, sensor values and robot locations while allowing operators to send START, STOP and ALARM commands.</p>
+            <div class="tag-list"><span>Web Dashboard</span><span>Live Map</span><span>Event Log</span><span>Operator Control</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--vision" id="technology">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Computer vision</div>
+          <h2>Computer Vision That Never Looks Away</h2>
+        </div>
+        <div class="vision-grid">
+          <div class="vision-frame glass-card reveal">
+            <img class="asset-media asset-media--wide" src="assets/ppe-detection-demo.jpg" alt="PPE detection demo" data-asset-media />
+            <div class="asset-fallback asset-fallback--vision">
+              <div class="vision-overlay-box box-person">Person</div>
+              <div class="vision-overlay-box box-helmet">Helmet</div>
+              <div class="vision-overlay-box box-vest">Vest</div>
+              <div class="vision-overlay-box box-goggles">Goggles</div>
+              <div class="vision-overlay-box box-warning">Missing Helmet Warning</div>
+              <div class="vision-figure">
+                <div class="vision-figure__head"></div>
+                <div class="vision-figure__torso"></div>
+                <div class="vision-figure__arms"></div>
+                <div class="vision-figure__legs"></div>
+              </div>
+            </div>
+          </div>
+          <div class="vision-points reveal">
+            <article class="vision-point glass-card"><h3>Local inference on Raspberry Pi</h3><p>Runs at the edge for fast on-device inspection.</p></article>
+            <article class="vision-point glass-card"><h3>No continuous cloud connection required</h3><p>Designed to keep working in isolated industrial spaces.</p></article>
+            <article class="vision-point glass-card"><h3>Structured JSON violation events</h3><p>Creates machine-readable records for the dashboard and logs.</p></article>
+            <article class="vision-point glass-card"><h3>Confidence score and bounding-box output</h3><p>Provides transparent detection output for review and traceability.</p></article>
+            <article class="vision-point glass-card"><h3>Designed for low-latency edge detection</h3><p>Optimized for practical inspection scenarios rather than cloud delay.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--sensors" id="sensors">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Environmental sensing</div>
+          <h2>Beyond Vision: Environmental Risk Detection</h2>
+          <p class="section__lead">All gauge values below are demo values for the frontend simulation only.</p>
+        </div>
+        <div class="sensor-grid reveal">
+          <article class="gauge-card glass-card" data-gauge-card data-metric="temperature">
+            <div class="gauge-card__header">
+              <h3>Temperature</h3><span class="gauge-card__badge">Demo</span>
+            </div>
+            <div class="gauge" data-gauge style="--value: 28; --accent: var(--neon);">
+              <div class="gauge__inner">
+                <strong data-gauge-value>28</strong>
+                <span>°C</span>
+              </div>
+            </div>
+            <p>Warning target: over 60 °C</p>
+          </article>
+          <article class="gauge-card glass-card" data-gauge-card data-metric="humidity">
+            <div class="gauge-card__header">
+              <h3>Humidity</h3><span class="gauge-card__badge">Demo</span>
+            </div>
+            <div class="gauge" data-gauge style="--value: 47; --accent: var(--turquoise);">
+              <div class="gauge__inner">
+                <strong data-gauge-value>47</strong>
+                <span>%</span>
+              </div>
+            </div>
+            <p>Reference operating band: comfortable industrial range</p>
+          </article>
+          <article class="gauge-card glass-card" data-gauge-card data-metric="gas">
+            <div class="gauge-card__header">
+              <h3>Gas / Air Quality</h3><span class="gauge-card__badge gauge-card__badge--warning">Demo</span>
+            </div>
+            <div class="gauge" data-gauge style="--value: 220; --accent: var(--warning);">
+              <div class="gauge__inner">
+                <strong data-gauge-value>220</strong>
+                <span>ppm</span>
+              </div>
+            </div>
+            <p>Warning target: over 400 ppm</p>
+          </article>
+          <article class="gauge-card glass-card" data-gauge-card data-metric="noise">
+            <div class="gauge-card__header">
+              <h3>Noise Level</h3><span class="gauge-card__badge">Demo</span>
+            </div>
+            <div class="gauge" data-gauge style="--value: 62; --accent: var(--alarm);">
+              <div class="gauge__inner">
+                <strong data-gauge-value>62</strong>
+                <span>dB</span>
+              </div>
+            </div>
+            <p>Warning target: over 85 dB</p>
+          </article>
+        </div>
+        <div class="sensor-actions reveal">
+          <button class="btn btn--primary" type="button" id="simulate-hazard">Simulate Hazard</button>
+          <p>Frontend demo only. Press the button to simulate an environmental incident and watch the gas gauge react.</p>
+        </div>
+        <div class="event-strip glass-card reveal">
+          <div class="event-strip__header">
+            <span>Recent Event Stream</span>
+            <span class="risk-tag">Demo log</span>
+          </div>
+          <div class="event-strip__list" data-log-preview></div>
+        </div>
+      </section>
+
+      <section class="section section--dashboard" id="dashboard">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Operator console</div>
+          <h2>Real-Time Command and Monitoring Dashboard</h2>
+        </div>
+        <div class="dashboard-grid reveal">
+          <aside class="dashboard-panel glass-card dashboard-panel--left">
+            <h3>System Status</h3>
+            <div class="status-list">
+              <div><span>Robot status</span><strong data-robot-status>Patrolling</strong></div>
+              <div><span>Battery indicator</span><strong>84%</strong></div>
+              <div><span>Current waypoint</span><strong data-waypoint>Waypoint 3</strong></div>
+              <div><span>Connection status</span><strong class="text-success">Online</strong></div>
+              <div><span>Patrol status</span><strong data-patrol-status>Autonomous patrol running</strong></div>
+            </div>
+            <div class="command-row">
+              <button class="btn btn--primary btn--small" type="button" data-command="start">START</button>
+              <button class="btn btn--ghost btn--small" type="button" data-command="stop">STOP</button>
+              <button class="btn btn--danger btn--small" type="button" data-command="alarm">ALARM</button>
+            </div>
+          </aside>
+
+          <section class="dashboard-panel glass-card dashboard-panel--center">
+            <div class="dashboard-panel__header">
+              <h3>Facility Map</h3>
+              <span>Mock Leaflet-style overview</span>
+            </div>
+            <div class="floor-map">
+              <img class="asset-media asset-media--floor" src="assets/floor-plan.png" alt="Floor plan" data-asset-media />
+              <div class="asset-fallback asset-fallback--floor">
+                <div class="floor-map__grid"></div>
+                <div class="floor-zone floor-zone--a">Loading Bay</div>
+                <div class="floor-zone floor-zone--b">Assembly Line</div>
+                <div class="floor-zone floor-zone--c">Restricted Area</div>
+                <div class="floor-waypoint waypoint-1">1</div>
+                <div class="floor-waypoint waypoint-2">2</div>
+                <div class="floor-waypoint waypoint-3 floor-waypoint--active">3</div>
+                <div class="floor-waypoint waypoint-4">4</div>
+                <div class="floor-waypoint waypoint-5">5</div>
+                <div class="floor-robot"></div>
+                <div class="floor-marker floor-marker--ppe">PPE</div>
+                <div class="floor-marker floor-marker--hazard">Hazard</div>
+              </div>
+            </div>
+            <div class="dashboard-panel__footer">
+              <span>Location labels are illustrative</span>
+              <span>Events linked to the current waypoint</span>
+            </div>
+          </section>
+
+          <aside class="dashboard-panel glass-card dashboard-panel--right">
+            <h3>Live Events</h3>
+            <div class="log-list" data-dashboard-log></div>
+          </aside>
+        </div>
+
+        <div class="dashboard-gallery reveal">
+          <div class="dashboard-gallery__caption">
+            <div class="eyebrow">Implemented system</div>
+            <p>Screenshots from the working OHS Sentinel dashboard: the live floor plan with robot tracking, temperature/gas/noise gauges, the event log and the robot's live camera feed with PPE detection.</p>
+          </div>
+          <figure class="dashboard-gallery__item glass-card">
+            <img src="assets/dashboard-screenshot-overview.png" alt="OHS Sentinel dashboard showing the live floor plan, robot position, sensor gauges and event log" loading="lazy" />
+            <figcaption>Live floor plan with robot position, temperature/gas/noise gauges and the event log.</figcaption>
+          </figure>
+          <figure class="dashboard-gallery__item glass-card">
+            <img src="assets/dashboard-screenshot-camera.png" alt="OHS Sentinel live camera feed detecting a No-Safety Vest PPE violation with bounding boxes" loading="lazy" />
+            <figcaption>Live robot camera feed flagging a "No-Safety Vest" PPE violation in real time.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--architecture" id="architecture">
+        <div class="section__heading reveal">
+          <div class="eyebrow">System design</div>
+          <h2>Built as a Complete Edge Safety Ecosystem</h2>
+        </div>
+        <div class="architecture-grid reveal">
+          <article class="architecture-flow glass-card">
+            <div class="architecture-flow__title">Vision flow</div>
+            <div class="flow-line flow-line--mqtt">
+              <div class="flow-node">Pi Camera</div>
+              <span></span>
+              <div class="flow-node">YOLOv8n PPE Detection</div>
+              <span></span>
+              <div class="flow-node">MQTT Broker</div>
+              <span></span>
+              <div class="flow-node">FastAPI Backend</div>
+              <span></span>
+              <div class="flow-node">SQLite + WebSocket</div>
+              <span></span>
+              <div class="flow-node">OHS Monitoring Dashboard</div>
+            </div>
+          </article>
+          <article class="architecture-flow glass-card">
+            <div class="architecture-flow__title">Sensor flow</div>
+            <div class="flow-line flow-line--gpio">
+              <div class="flow-node">DHT22 / MQ-135 / KY-038</div>
+              <span></span>
+              <div class="flow-node">Environmental Sensor Module</div>
+              <span></span>
+              <div class="flow-node">MQTT Broker</div>
+            </div>
+          </article>
+          <article class="architecture-flow glass-card">
+            <div class="architecture-flow__title">Navigation flow</div>
+            <div class="flow-line flow-line--usb">
+              <div class="flow-node">Waypoint Navigation</div>
+              <span></span>
+              <div class="flow-node">USB Serial</div>
+              <span></span>
+              <div class="flow-node">Arduino UNO</div>
+              <span></span>
+              <div class="flow-node">L298N Motor Driver</div>
+              <span></span>
+              <div class="flow-node">4 DC Motors</div>
+            </div>
+          </article>
+          <article class="architecture-flow glass-card">
+            <div class="architecture-flow__title">Command flow</div>
+            <div class="flow-line flow-line--rest">
+              <div class="flow-node">Dashboard START / STOP / ALARM</div>
+              <span></span>
+              <div class="flow-node">FastAPI / MQTT</div>
+              <span></span>
+              <div class="flow-node">Navigation Module</div>
+              <span></span>
+              <div class="flow-node">Arduino UNO</div>
+            </div>
+          </article>
+          <div class="architecture-legend glass-card">
+            <div><i class="legend-dot legend-dot--mqtt"></i> MQTT</div>
+            <div><i class="legend-dot legend-dot--usb"></i> USB Serial</div>
+            <div><i class="legend-dot legend-dot--rest"></i> REST</div>
+            <div><i class="legend-dot legend-dot--ws"></i> WebSocket</div>
+            <div><i class="legend-dot legend-dot--gpio"></i> GPIO / SPI</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="specs">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Technical snapshot</div>
+          <h2>Technical Specifications</h2>
+        </div>
+        <div class="spec-table glass-card reveal">
+          <div class="spec-row spec-row--head">
+            <span>Category</span><span>Specification</span>
+          </div>
+          <div class="spec-row"><span>Main Computer</span><span>Raspberry Pi 5, 8 GB</span></div>
+          <div class="spec-row"><span>Camera</span><span>Raspberry Pi Camera Module v2</span></div>
+          <div class="spec-row"><span>AI Model</span><span>YOLOv8n</span></div>
+          <div class="spec-row"><span>Microcontroller</span><span>Arduino UNO R3</span></div>
+          <div class="spec-row"><span>Motor Driver</span><span>L298N Dual H-Bridge</span></div>
+          <div class="spec-row"><span>Mobility</span><span>4WD Robot Chassis</span></div>
+          <div class="spec-row"><span>Obstacle Detection</span><span>2× HC-SR04</span></div>
+          <div class="spec-row"><span>Temperature/Humidity</span><span>DHT22</span></div>
+          <div class="spec-row"><span>Gas/Air Quality</span><span>MQ-135 + MCP3008</span></div>
+          <div class="spec-row"><span>Noise Detection</span><span>KY-038</span></div>
+          <div class="spec-row"><span>Communication</span><span>MQTT, REST, WebSocket, USB Serial</span></div>
+          <div class="spec-row"><span>Backend</span><span>Python, FastAPI</span></div>
+          <div class="spec-row"><span>Database</span><span>SQLite</span></div>
+          <div class="spec-row"><span>Dashboard</span><span>Browser-Based Monitoring Interface</span></div>
+          <div class="spec-row"><span>Power</span><span>7.4 V 2S2P Li-ion Battery Pack</span></div>
+          <div class="spec-row"><span>Remote Management</span><span>SSH and systemd</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="targets">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Project goals</div>
+          <h2>Engineering Targets</h2>
+          <p class="section__lead">Targets below are intended goals for the project, not claimed achieved results.</p>
+        </div>
+        <div class="target-grid reveal">
+          <article class="target-card glass-card"><span>PPE Detection mAP@0.5 Target</span><strong>≥ 0.80</strong></article>
+          <article class="target-card glass-card"><span>Inference Latency Target</span><strong>≤ 200 ms per frame</strong></article>
+          <article class="target-card glass-card"><span>Event Delivery Target</span><strong>≤ 1 second to dashboard</strong></article>
+          <article class="target-card glass-card"><span>Patrol Continuity Target</span><strong>24/7 edge-ready inspection cycles</strong></article>
+        </div>
+      </section>
+
+      <section class="section" id="team">
+        <div class="section__heading reveal">
+          <div class="eyebrow">Project team</div>
+          <h2>Built by a Cross-Disciplinary Robotics Stack</h2>
+        </div>
+        <figure class="team-photo glass-card reveal">
+          <img src="assets/team-photo.jpg" alt="OHS Sentinel project team posing with the robot prototype and dashboard laptop" loading="lazy" />
+        </figure>
+        <div class="team-grid reveal">
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-01</span>
+            <h3>Melik Ahmet Caymazoğlu</h3>
+            <p>Vision Based PPE Detection</p>
+          </article>
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-01</span>
+            <h3>Mert Certel</h3>
+            <p>Vision Based PPE Detection</p>
+          </article>
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-02</span>
+            <h3>Zehra Betül Güzel</h3>
+            <p>Environmental Hazard Sensing</p>
+          </article>
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-03</span>
+            <h3>Ahmet Faruk Kemal Keskinsoy</h3>
+            <p>Autonomous Navigation</p>
+          </article>
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-03</span>
+            <h3>Muhammed Emin Merdun</h3>
+            <p>Autonomous Navigation</p>
+          </article>
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-04</span>
+            <h3>Ömer Faruk Semih</h3>
+            <p>Backend & API</p>
+          </article>
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-04</span>
+            <h3>Yusuf Eren Nalbant</h3>
+            <p>Backend & API</p>
+          </article>
+          <article class="team-card glass-card">
+            <span class="team-card__module">MOD-05</span>
+            <h3>İrem Akşun</h3>
+            <p>OHS Monitoring Dashboard</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer section">
+      <div class="footer__inner glass-card reveal">
+        <div>
+          <span class="eyebrow">OHS Sentinel</span>
+          <h2>Safety visibility for places where every blind spot matters.</h2>
+        </div>
+        <a class="btn btn--primary" href="#overview" data-scroll>Back to top</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast-layer" aria-live="polite" aria-atomic="true" data-toast-layer></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
