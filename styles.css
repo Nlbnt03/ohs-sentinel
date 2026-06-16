@@ -167,20 +167,35 @@ body::before {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.07);
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 5px;
   cursor: pointer;
 }
 
 .menu-toggle span {
   display: block;
-  width: 16px;
+  width: 20px;
   height: 2px;
   background: var(--text);
   border-radius: 999px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .section {
@@ -1578,9 +1593,12 @@ body::before {
     align-items: flex-start;
   }
 
-  .command-row,
+  .command-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .architecture-legend {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .spec-row {
@@ -1605,14 +1623,188 @@ body::before {
     max-width: 100%;
   }
 
-  .hero-frame,
-  .video-shell,
-  .risk-board,
-  .vision-frame {
+  .hero-frame {
+    min-height: 440px;
+  }
+
+  .hero-frame__status {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero-frame__signals {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin-top: auto;
+    padding-top: 12px;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  .hero-robot {
+    inset: 60px 16px 56px;
+  }
+
+  .video-shell {
     min-height: auto;
+  }
+
+  .risk-board {
+    min-height: 360px;
+  }
+
+  .vision-frame {
+    min-height: 420px;
   }
 
   .demo-video {
     min-height: 300px;
+  }
+
+  .section {
+    padding-bottom: 24px;
+  }
+
+  .problem-layout__visual {
+    position: static;
+  }
+
+  .team-photo img {
+    min-height: 220px;
+  }
+
+  .risk-board__header {
+    position: relative;
+    z-index: 3;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .risk-board .asset-fallback {
+    top: 96px;
+  }
+
+  .asset-fallback__legend {
+    font-size: 0.82rem;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container: min(1180px, calc(100vw - 24px));
+  }
+
+  .section {
+    padding-top: 88px;
+    padding-bottom: 16px;
+  }
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero__copy h1 {
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__badges span {
+    font-size: 0.78rem;
+    padding: 6px 11px;
+  }
+
+  .hero-frame {
+    min-height: 360px;
+    padding: 14px;
+  }
+
+  .hero-frame__signals {
+    display: none;
+  }
+
+  .risk-board {
+    min-height: 300px;
+  }
+
+  .asset-fallback__legend {
+    font-size: 0.78rem;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .hazard-a { top: 12%; height: 18%; }
+  .hazard-b { bottom: 22%; height: 15%; }
+
+  .vision-frame {
+    min-height: 340px;
+  }
+
+  .workflow-step {
+    min-height: auto;
+  }
+
+  .workflow-step__num {
+    margin-bottom: 20px;
+  }
+
+  .gauge__inner strong {
+    font-size: clamp(1.4rem, 8vw, 2rem);
+  }
+
+  .toast-layer {
+    left: 12px;
+    right: 12px;
+  }
+
+  .toast {
+    min-width: unset;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .event-card {
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+  }
+
+  .event-card .event-tag {
+    grid-column: 1 / -1;
+  }
+
+  .dashboard-panel {
+    padding: 14px;
+  }
+
+  .architecture-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spec-row {
+    gap: 8px;
+    padding: 12px 14px;
+  }
+
+  .btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .team-photo img {
+    min-height: 180px;
   }
 }
